@@ -1,6 +1,7 @@
 package fr.thiiozz.algorithm.unionfind.exercice;
 
 public class Percolation {
+
     public Percolation(int N) {
     }
 
