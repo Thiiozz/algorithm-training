@@ -1,4 +1,4 @@
-package fr.thiiozz.algorithm.unionfind;
+package fr.thiiozz.algorithm.unionfind.practice;
 
 public interface UF {
 

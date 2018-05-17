@@ -1,4 +1,4 @@
-package fr.thiiozz.algorithm.unionfind;
+package fr.thiiozz.algorithm.unionfind.practice;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,12 +6,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class OptimizedApproachTest extends AbstractUFTest {
+public class LazyApproachTest extends AbstractUFTest{
     @Before
     public void setUp() {
-        uf = new OptimizedApproach(NUMBER_OF_ELEMENTS);
+        uf = new LazyApproach(NUMBER_OF_ELEMENTS);
     }
-
 
     @Test
     public void initialNoElementsAreUnited() {
