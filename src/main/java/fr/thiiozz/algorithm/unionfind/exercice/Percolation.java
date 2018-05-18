@@ -129,5 +129,7 @@ public class Percolation {
         }
 
         System.out.println("");
+        System.out.println(percolates(false) ? "System percolates" : "System does not percolate");
+        System.out.println("");
     }
 }
