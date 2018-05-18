@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class PercolationTest {
@@ -18,13 +19,12 @@ public class PercolationTest {
 
     @Test
     public void canPopulateGrid() {
-        assertEquals(N, p.grid().length);
-        assertEquals(N, p.grid()[0].length);
+        assertEquals(N * N, p.grid().length);
     }
 
     @Test
     public void initiallyASiteIsClosed() {
-        assertEquals(Percolation.CLOSE, p.grid()[0][0]);
+        assertEquals(Percolation.CLOSE, p.grid()[0]);
     }
 
     @Test
@@ -63,7 +63,58 @@ public class PercolationTest {
         p.open(8, 0);
         p.open(9, 0);
 
-        assertTrue(p.percolates());
+        assertTrue(p.percolates(true));
+    }
+
+    @Test
+    public void knowWhenGridPercolatesOnTrickyCase(){
+        p = new Percolation(N);
+
+        p.open(0, 0);
+
+        p.open(1, 0);
+
+        p.open(2, 0);
+        p.open(2, 1);
+        p.open(2, 2);
+        p.open(2, 3);
+
+        p.open(3, 3);
+
+        p.open(4, 3);
+
+        p.open(5, 3);
+
+        p.open(6, 3);
+        p.open(6, 4);
+        p.open(6, 5);
+        p.open(6, 6);
+        p.open(6, 7);
+
+        p.open(7, 7);
+
+        p.open(8, 7);
+        p.open(8, 8);
+        p.open(8, 9);
+
+        p.open(9, 9);
+
+        assertTrue(p.percolates(true));
+    }
+
+    @Test
+    public void knowWhenGridDontPercolates(){
+        p.open(0, 0);
+        p.open(1, 0);
+        p.open(2, 0);
+        p.open(3, 0);
+        p.open(4, 0);
+        p.open(5, 0);
+        p.open(6, 0);
+        p.open(7, 0);
+        p.open(8, 0);
+
+        assertFalse(p.percolates(true));
     }
 
     @Test
@@ -74,5 +125,31 @@ public class PercolationTest {
         p.open(1,1);
 
         assertEquals(3, p.numberOfOpenSites());
+    }
+
+    @Test
+    public void canCalculateLargeNumberOfOpenSite(){
+        p.open(0, 0);
+        p.open(1, 0);
+        p.open(2, 0);
+        p.open(2, 1);
+        p.open(2, 2);
+        p.open(2, 3);
+        p.open(3, 3);
+        p.open(4, 3);
+        p.open(5, 3);
+        p.open(6, 3);
+        p.open(6, 4);
+        p.open(6, 5);
+        p.open(6, 6);
+        p.open(6, 7);
+        p.open(7, 7);
+        p.open(8, 7);
+        p.open(8, 8);
+        p.open(8, 9);
+        p.open(9, 9);
+        p.open(4, 4);
+
+        assertEquals(20, p.numberOfOpenSites());
     }
 }
