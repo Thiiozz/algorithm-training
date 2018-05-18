@@ -19,11 +19,11 @@ public class StatsHelper {
         return sum / (n.length - 1);
     }
 
-    public static float confidenceLo(int[] n){
+    public static float confidenceLo(int[] n) {
         return mean(n) + thresold(n, true);
     }
 
-    public static float confidenceHi(int[] n){
+    public static float confidenceHi(int[] n) {
         return mean(n) + thresold(n, false);
     }
 

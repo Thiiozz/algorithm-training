@@ -1,27 +1,27 @@
 package fr.thiiozz.algorithm.unionfind.exercice;
 
 public class PercolationStats {
-    public PercolationStats(int n, int trials){
+    public PercolationStats(int n, int trials) {
 
     }
 
-    public double mean(){
+    public double mean() {
         return 0;
     }
 
-    public double stddev(){
+    public double stddev() {
         return 0;
     }
 
-    public double confidenceLo(){
+    public double confidenceLo() {
         return 0;
     }
 
-    public double confidenceHi(){
+    public double confidenceHi() {
         return 0;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
 }

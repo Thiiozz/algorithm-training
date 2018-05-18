@@ -1,7 +1,5 @@
 package fr.thiiozz.algorithm.unionfind.practice;
 
-import fr.thiiozz.algorithm.unionfind.practice.UF;
-
 import java.util.ArrayList;
 import java.util.List;
 

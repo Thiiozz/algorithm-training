@@ -7,10 +7,10 @@ public class LazyApproach extends AbstractUF {
 
     @Override
     public void union(int p, int q) {
-       int i = root(p);
-       int j = root(q);
+        int i = root(p);
+        int j = root(q);
 
-       id[i] = j;
+        id[i] = j;
     }
 
     @Override

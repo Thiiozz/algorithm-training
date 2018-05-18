@@ -1,6 +1,6 @@
 package fr.thiiozz.algorithm.unionfind.practice;
 
-public class DumbApproach extends AbstractUF{
+public class DumbApproach extends AbstractUF {
     public DumbApproach(int N) {
         super(N);
     }
@@ -11,7 +11,7 @@ public class DumbApproach extends AbstractUF{
         int qid = id[q];
 
         for (int i = 0; i < id.length; i++)
-            if(id[i] == pid) id[i]= qid;
+            if (id[i] == pid) id[i] = qid;
     }
 
     @Override

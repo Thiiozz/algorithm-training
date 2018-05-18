@@ -1,6 +1,6 @@
 package fr.thiiozz.algorithm.unionfind.practice;
 
-public abstract class AbstractUF implements UF{
+public abstract class AbstractUF implements UF {
     protected int[] id;
 
     public AbstractUF(int N) {
