@@ -41,37 +41,33 @@ public class Percolation {
     private void connectNeighbors(int row, int col) {
         int siteOneDOpenIndex = oneDimensionalIndex(row, col);
 
-        if (row > 0) {
-            if (isOpen(row - 1, col))
-                uf.union(
-                        siteOneDOpenIndex,
-                        oneDimensionalIndex(row - 1, col)
-                );
-        }
+        tryToFillLeftSite(row, col, siteOneDOpenIndex);
+        tryToFillRightSite(row, col, siteOneDOpenIndex);
+        tryToFillUpSite(row, col, siteOneDOpenIndex);
+        tryToFillBottomSite(row, col, siteOneDOpenIndex);
+    }
 
-        if (row < gridDimension - 1) {
-            if (isOpen(row + 1, col))
-                uf.union(
-                        siteOneDOpenIndex,
-                        oneDimensionalIndex(row + 1, col)
-                );
-        }
+    private void tryToFillLeftSite(int row, int col, int siteOneDOpenIndex) {
+        if (row > 0)
+            if (isOpen(row - 1, col)) uf.union(siteOneDOpenIndex, oneDimensionalIndex(row - 1, col));
 
-        if (col > 0) {
-            if (isOpen(row, col - 1))
-                uf.union(
-                        siteOneDOpenIndex,
-                        oneDimensionalIndex(row, col - 1)
-                );
-        }
+    }
 
-        if (col < gridDimension - 1) {
-            if (isOpen(row, col + 1))
-                uf.union(
-                        siteOneDOpenIndex,
-                        oneDimensionalIndex(row, col + 1)
-                );
-        }
+    private void tryToFillRightSite(int row, int col, int siteOneDOpenIndex) {
+        if (row < gridDimension - 1)
+            if (isOpen(row + 1, col)) uf.union(siteOneDOpenIndex, oneDimensionalIndex(row + 1, col));
+    }
+
+    private void tryToFillUpSite(int row, int col, int siteOneDOpenIndex) {
+        if (col > 0)
+            if (isOpen(row, col - 1)) uf.union(siteOneDOpenIndex, oneDimensionalIndex(row, col - 1));
+
+    }
+
+    private void tryToFillBottomSite(int row, int col, int siteOneDOpenIndex) {
+        if (col < gridDimension - 1)
+            if (isOpen(row, col + 1)) uf.union(siteOneDOpenIndex, oneDimensionalIndex(row, col + 1));
+
     }
 
     public boolean isOpen(int row, int col) {
@@ -80,12 +76,8 @@ public class Percolation {
 
     public boolean isFull(int row, int col) {
         for (int i = 0; i < gridDimension; i++) {
-            if (grid[i] == OPEN) {
-                if (uf.connected(
-                        oneDimensionalIndex(0, i),
-                        oneDimensionalIndex(row, col)
-                )) return true;
-            }
+            if (grid[i] == OPEN && uf.connected(oneDimensionalIndex(0, i), oneDimensionalIndex(row, col)))
+                return true;
         }
 
         return false;
@@ -96,18 +88,12 @@ public class Percolation {
     }
 
     public boolean percolates(boolean debug) {
-        if(debug)
+        if (debug)
             displayGrid();
 
         for (int j = 0; j < gridDimension; j++) {
-
-            int i = oneDimensionalIndex(gridDimension - 1, j);
-
-            if (grid[i] == OPEN) {
-                if (isFull(gridDimension - 1, j)) {
-                    return true;
-                }
-            }
+            if (grid[oneDimensionalIndex(gridDimension - 1, j)] == OPEN && isFull(gridDimension - 1, j))
+                return true;
         }
 
         return false;
@@ -122,11 +108,18 @@ public class Percolation {
     }
 
 
-    public void displayGrid(){
+    private void displayGrid() {
         int charsOnActualRow = 0;
 
-        for (int i = 0; i < N; i++){
-            if(charsOnActualRow > gridDimension - 1){
+        System.out.println("");
+        System.out.println("___");
+        System.out.println(String.valueOf(gridDimension) + " * " + String.valueOf(gridDimension) + " matrix");
+        System.out.println(N + " total sites");
+        System.out.println(numberOfOpenSites() + " open sites");
+        System.out.println("");
+
+        for (int i = 0; i < N; i++) {
+            if (charsOnActualRow > gridDimension - 1) {
                 System.out.println("");
                 charsOnActualRow = 0;
             }
@@ -134,5 +127,7 @@ public class Percolation {
             System.out.print(String.valueOf(grid[i]).concat(" "));
             charsOnActualRow++;
         }
+
+        System.out.println("");
     }
 }
