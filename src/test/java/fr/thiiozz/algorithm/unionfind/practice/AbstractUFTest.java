@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractUFTest {
-    protected UF uf;
     protected static final int NUMBER_OF_ELEMENTS = 10;
+    protected UF uf;
     protected List<String> unions = new ArrayList<>();
 
     protected void connect() {

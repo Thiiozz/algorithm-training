@@ -24,16 +24,16 @@ public class PercolationStats {
         range(0, trials).forEach(i -> percolations.add(new Percolation(n)));
     }
 
-    public void run(){
+    public void run() {
         int i = 0;
         System.out.println("Monte carlo simulation started");
 
         long start = System.currentTimeMillis();
 
-        for(Percolation p : percolations){
+        for (Percolation p : percolations) {
             int numberOfTry = 0;
 
-            while(!p.percolates(false)){
+            while (!p.percolates(false)) {
                 p.open(rand(), rand());
                 numberOfTry++;
             }
@@ -64,7 +64,7 @@ public class PercolationStats {
         System.out.println("Processing time: " + String.valueOf((end - start) / 1000) + "sec");
     }
 
-    private int rand(){
+    private int rand() {
         return ThreadLocalRandom.current().nextInt(0, N);
     }
 }

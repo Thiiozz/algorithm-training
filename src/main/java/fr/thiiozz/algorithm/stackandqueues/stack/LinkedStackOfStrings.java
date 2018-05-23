@@ -1,14 +1,11 @@
 package fr.thiiozz.algorithm.stackandqueues.stack;
 
-public class LinkedStackOfStrings {
-    public class Node{
-        String item;
-        Node next;
-    }
+import fr.thiiozz.algorithm.stackandqueues.model.Node;
 
+public class LinkedStackOfStrings {
     private Node first;
 
-    public void push(String item){
+    public void push(String item) {
         Node n = new Node();
         n.item = item;
         n.next = first;
@@ -16,7 +13,7 @@ public class LinkedStackOfStrings {
         first = n;
     }
 
-    public String pop(){
+    public String pop() {
         Node oldFirst = first;
 
         first = first.next;
@@ -24,16 +21,16 @@ public class LinkedStackOfStrings {
         return oldFirst.item;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return first == null;
     }
 
-    public int size(){
+    public int size() {
         int size = 0;
 
         Node n = first;
 
-        while (n != null){
+        while (n != null) {
             size++;
             n = n.next;
         }

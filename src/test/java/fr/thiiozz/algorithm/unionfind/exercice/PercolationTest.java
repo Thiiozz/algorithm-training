@@ -3,9 +3,7 @@ package fr.thiiozz.algorithm.unionfind.exercice;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PercolationTest {
     private static final int N = 10;
@@ -35,14 +33,14 @@ public class PercolationTest {
     }
 
     @Test
-    public void topRowSiteAreFullIfOpen(){
+    public void topRowSiteAreFullIfOpen() {
         p.open(0, 0);
 
         assertTrue(p.isFull(0, 0));
     }
 
     @Test
-    public void secondLineRowSiteAreFullIfOpenAndConnectedWithAnOpenTopRowSite(){
+    public void secondLineRowSiteAreFullIfOpenAndConnectedWithAnOpenTopRowSite() {
         p.open(0, 0);
         p.open(1, 0);
         p.open(2, 0);
@@ -51,7 +49,7 @@ public class PercolationTest {
     }
 
     @Test
-    public void knowWhenGridPercolates(){
+    public void knowWhenGridPercolates() {
         p.open(0, 0);
         p.open(1, 0);
         p.open(2, 0);
@@ -67,7 +65,7 @@ public class PercolationTest {
     }
 
     @Test
-    public void knowWhenGridPercolatesOnTrickyCase(){
+    public void knowWhenGridPercolatesOnTrickyCase() {
         p = new Percolation(N);
 
         p.open(0, 0);
@@ -103,7 +101,7 @@ public class PercolationTest {
     }
 
     @Test
-    public void knowWhenGridDontPercolates(){
+    public void knowWhenGridDontPercolates() {
         p.open(0, 0);
         p.open(1, 0);
         p.open(2, 0);
@@ -118,17 +116,17 @@ public class PercolationTest {
     }
 
     @Test
-    public void canCalculateNumberOfOpenSites(){
-        p.open(0,0);
-        p.open(0,0);
-        p.open(0,1);
-        p.open(1,1);
+    public void canCalculateNumberOfOpenSites() {
+        p.open(0, 0);
+        p.open(0, 0);
+        p.open(0, 1);
+        p.open(1, 1);
 
         assertEquals(3, p.numberOfOpenSites());
     }
 
     @Test
-    public void canCalculateLargeNumberOfOpenSite(){
+    public void canCalculateLargeNumberOfOpenSite() {
         p.open(0, 0);
         p.open(1, 0);
         p.open(2, 0);

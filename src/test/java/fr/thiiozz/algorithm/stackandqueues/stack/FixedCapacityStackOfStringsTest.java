@@ -1,6 +1,5 @@
 package fr.thiiozz.algorithm.stackandqueues.stack;
 
-import fr.thiiozz.algorithm.stackandqueues.stack.FixedCapacityStackOfStrings;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,24 +10,24 @@ public class FixedCapacityStackOfStringsTest {
     private FixedCapacityStackOfStrings stack;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         stack = new FixedCapacityStackOfStrings(10);
     }
 
     @Test
-    public void canConstructAnEmptyStack(){
+    public void canConstructAnEmptyStack() {
         assertEquals(0, stack.size());
         assertTrue(stack.isEmpty());
     }
 
     @Test
-    public void canAccessToTopElementWhileStackContainsOneElement(){
+    public void canAccessToTopElementWhileStackContainsOneElement() {
         stack.push("hello");
         assertEquals("hello", stack.first());
     }
 
     @Test
-    public void canAccessToTopElementWhileStackContainsSeveralElements(){
+    public void canAccessToTopElementWhileStackContainsSeveralElements() {
         stack.push("hello");
         stack.push("world");
         stack.push("!");
@@ -37,7 +36,7 @@ public class FixedCapacityStackOfStringsTest {
     }
 
     @Test
-    public void canPopElement(){
+    public void canPopElement() {
         stack.push("hello");
         stack.push("world");
         stack.push("!");
@@ -49,7 +48,7 @@ public class FixedCapacityStackOfStringsTest {
     }
 
     @Test
-    public void canCalculateStackValue(){
+    public void canCalculateStackValue() {
         stack.push("hello");
         stack.push("hello");
         stack.push("hello");

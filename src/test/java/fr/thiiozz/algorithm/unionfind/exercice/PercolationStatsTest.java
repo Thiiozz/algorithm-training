@@ -6,7 +6,7 @@ public class PercolationStatsTest {
     PercolationStats ps = new PercolationStats(10, 3);
 
     @Test
-    public void test(){
+    public void test() {
         ps.run();
     }
 }
