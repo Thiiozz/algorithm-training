@@ -23,7 +23,7 @@ public class QueueOfStringsTest {
     @Test
     public void canAccessToTopElementWhileStackContainsOneElement() {
         queue.enqueue("hello");
-        assertEquals("hello", queue.first());
+        assertEquals("hello", queue.front());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class QueueOfStringsTest {
         queue.enqueue("world");
         queue.enqueue("!");
 
-        assertEquals("!", queue.first());
+        assertEquals("hello", queue.front());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class QueueOfStringsTest {
         queue.dequeue();
 
         assertEquals("world", queue.dequeue());
-        assertEquals("hello", queue.first());
+        assertEquals("!", queue.front());
     }
 
     @Test
