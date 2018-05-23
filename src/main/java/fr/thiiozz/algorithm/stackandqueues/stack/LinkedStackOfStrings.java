@@ -1,4 +1,4 @@
-package fr.thiiozz.algorithm.stackandqueues;
+package fr.thiiozz.algorithm.stackandqueues.stack;
 
 public class LinkedStackOfStrings {
     public class Node{

@@ -1,8 +1,8 @@
-package fr.thiiozz.algorithm.stackandqueues;
+package fr.thiiozz.algorithm.stackandqueues.stack;
 
 public class FixedCapacityStackOfStrings {
-    private String[] s;
-    private int N;
+    protected String[] s;
+    protected int N;
 
     public FixedCapacityStackOfStrings(int capacity) {
         s = new String[capacity];

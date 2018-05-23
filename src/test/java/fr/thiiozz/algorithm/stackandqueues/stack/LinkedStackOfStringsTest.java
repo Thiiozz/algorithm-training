@@ -1,17 +1,18 @@
-package fr.thiiozz.algorithm.stackandqueues;
+package fr.thiiozz.algorithm.stackandqueues.stack;
 
+import fr.thiiozz.algorithm.stackandqueues.stack.LinkedStackOfStrings;
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-public class FixedCapacityStackOfStringsTest {
-    private FixedCapacityStackOfStrings stack;
+public class LinkedStackOfStringsTest {
+    private LinkedStackOfStrings stack;
 
     @Before
     public void setUp(){
-        stack = new FixedCapacityStackOfStrings(10);
+        stack = new LinkedStackOfStrings();
     }
 
     @Test
