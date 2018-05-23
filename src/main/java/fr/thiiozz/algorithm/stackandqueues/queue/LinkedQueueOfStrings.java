@@ -2,7 +2,7 @@ package fr.thiiozz.algorithm.stackandqueues.queue;
 
 import fr.thiiozz.algorithm.stackandqueues.model.Node;
 
-public class QueueOfStrings {
+public class LinkedQueueOfStrings {
     private Node first;
     private Node last;
 

@@ -6,12 +6,12 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-public class QueueOfStringsTest {
-    private QueueOfStrings queue;
+public class LinkedQueueOfStringsTest {
+    private LinkedQueueOfStrings queue;
 
     @Before
     public void setUp() {
-        queue = new QueueOfStrings();
+        queue = new LinkedQueueOfStrings();
     }
 
     @Test
