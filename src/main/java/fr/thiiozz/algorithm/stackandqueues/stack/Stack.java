@@ -1,6 +1,8 @@
 package fr.thiiozz.algorithm.stackandqueues.stack;
 
-public class Stack<E> {
+import java.util.Iterator;
+
+public class Stack<E> implements Iterable<E>{
     private class Node{
         E item;
         Node next;
@@ -43,5 +45,32 @@ public class Stack<E> {
 
     public E first() {
         return first.item;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new CustomIterator();
+    }
+
+    private class CustomIterator implements Iterator<E> {
+        private Node current = first;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public E next() {
+            E item = current.item;
+            current = current.next;
+
+            return item;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("Remove not supported !");
+        }
     }
 }

@@ -61,4 +61,19 @@ public class StackTest {
 
         assertEquals(2, stack.size());
     }
+
+    @Test
+    public void iterable(){
+        Stack<Integer> intStack = new Stack<>();
+
+        intStack.push(1);
+        intStack.push(2);
+        intStack.push(3);
+        intStack.push(4);
+        intStack.push(5);
+
+        for(Integer s : intStack){
+            System.out.println(s);
+        }
+    }
 }
